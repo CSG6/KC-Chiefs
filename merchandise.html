@@ -11,22 +11,22 @@
 </head>
 <body>
     <div class="container jumbotron">
-        <h1>Your #1 source for KC Cheifs merchandise!</h1>
+        <h1>Cheifs Kingdom Gear!</h1>
         <hr class="my-4">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Merchandise</a>
+                        <a class="nav-link" href="merchandise.html">Merchandise<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Schedule</a>
+                        <a class="nav-link" href="schedule.html">Schedule</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="index.html">Players</a>
+                        <a class="nav-link disabled" href="players.html">Players</a>
                     </li>
                 </ul>
             </div>
@@ -34,43 +34,47 @@
     </div>
     <div class="container jumbotron1">
         <div class="container">
+            <h1 class="lead">
+                Your #1 source for KC Cheifs merchandise!
+            </h1>
             <p class="lead">
-                Show Your Kingdom Pride
+                Select the check boxes below and hit submit to send us an order. Your total will be displayed on screen.
             </p>
             <div class="row">
                 <div class="col">
                     <p class="lead">
-                        For work, I am currently a Store Support Tech at Oreilly Auto Parts, which entails troubleshooting and problem solving, mostly for printers haha, but sometimes entire store networks.
-                        I am currently there through QPS employment services, however I am hoping to acquire a full time position there by the time the semester ends.
-                        <img src="images/work.jpg" alt="my place of work is Oreilly Auto Parts" />
+                        <input type="checkbox" id="item1" value="12" />
+                        Hat $12.00
                     </p>
+                    <img src="images/hat.jpg" alt="hat" />                   
                 </div>
                 <div class="col">
-                       <p class="lead">My hobbies include spending alot of time at medium sized bodies of water. I don't have much interest in the ocean, or far away destinations. My favorite thing on this earth is riding my wakeboard.
-                        Someimes it takes persistance, below here is a little clip of me demonstrating such.
-                    </p>
-                    <img class="myimage" src="images/pomme de terre.jpg" alt="pomme de terre" />
-                </div>
-                <div class="col">
-                    <p class="lead">
-
-                    </p>
-                    <img class="meAndPapa" src="images/me and papa.jpg" alt="learning to drive" />
+                       <p class="lead">
+                           <input type="checkbox" id="item2" value="25" checked=""/>
+                           Jacket $25.00
+                        </p>
+                    <img src="images/jacket.jpg" alt="jacket" checked=""/>
                 </div>
                 <div class="col">
                     <p class="lead">
-
+                        <input type="checkbox" id="item3" value="118" checked=""/>
+                       Vintage Zoobas $118.00
                     </p>
-                    <img class="shredding" src="images/hotpic2.png" alt="me Shredding" />
+                    <img src="images/zubaz.jpg" alt="zubaz" checked=""/>
+                </div>
+                <div class="col">
+                    <p class="lead">
+                        <input type="checkbox" id="item4" value="9" checked=""/>
+                        Socks $9.00
+                    </p>
+                    <img src="images/socks.jpg" alt="socks" />
                 </div>
             </div>
             <div class="container">
+                <button id="submit" class="btn" type="submit" value="Submit">Submit</button>
+                
                 <p class="lead">
-                    
-                </p>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/dLzs1oOD9do" frameborder="0" allowfullscreen></iframe>
-                <p class="lead">
-                    Cheifs kingdom
+                    Show Your Kingdom Pride!
                 </p>
             </div>
         </div>
@@ -81,5 +85,33 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <script>
+        function calcTotal() {
+            var itemTotal = 0;
+            var item1 = document.getElementById("item1");
+            var item2 = document.getElementById("item2");
+            var item3 = document.getElementById("item3");
+            var item4 = document.getElementById("item4");
+
+            (item1.checked) ? (itemTotal += 12) : (itemTotal += 0);
+            (item2.checked) ? (itemTotal += 25) : (itemTotal += 0);
+            (item3.checked) ? (itemTotal += 118) : (itemTotal += 0);
+            (item4.checked) ? (itemTotal += 9) : (itemTotal += 0);
+
+            var salesTaxRate = 0.07;
+            var orderTotal = itemTotal + (itemTotal * salesTaxRate);
+            alert("Your order total is $" + orderTotal);
+        }
+        document.getElementById("submit").addEventListener("click", calcTotal, false);
+        document.getElementById("reset").addEventListener("click", clearForm, true);
+    </script>
+    <script>
+        function clearForm() {
+            document.getElementById("item1").checked = false;
+            document.getElementById("item2").checked = false;
+            document.getElementById("item3").checked = false; 
+            document.getElementById("item4").checked = false;
+        }
+    </script>
 </body>
 </html>
