@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="css\styles.css">
+</head>
+<body>
+    <div class="container jumbotron">
+        <h1>Cheifs Kingdom Gear!</h1>
+        <hr class="my-4">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="merchandise.html">Merchandise<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="schedule.html">Schedule</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="players.html">Players</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="container jumbotron1">
+        <div class="container">
+            <h1 class="lead">
+                Your #1 source for KC Cheifs merchandise!
+            </h1>
+            <p class="lead">
+                Select the check boxes below and hit submit to send us an order. Your total will be displayed on screen.
+            </p>
+            <div class="row">
+                <div class="col">
+                    <p class="lead">
+                        <input type="checkbox" id="item1" value="12" />
+                        Hat $12.00
+                    </p>
+                    <img src="images/hat.jpg" alt="hat" />                   
+                </div>
+                <div class="col">
+                       <p class="lead">
+                           <input type="checkbox" id="item2" value="25" checked=""/>
+                           Jacket $25.00
+                        </p>
+                    <img src="images/jacket.jpg" alt="jacket" checked=""/>
+                </div>
+                <div class="col">
+                    <p class="lead">
+                        <input type="checkbox" id="item3" value="118" checked=""/>
+                       Vintage Zoobas $118.00
+                    </p>
+                    <img src="images/zubaz.jpg" alt="zubaz" checked=""/>
+                </div>
+                <div class="col">
+                    <p class="lead">
+                        <input type="checkbox" id="item4" value="9" checked=""/>
+                        Socks $9.00
+                    </p>
+                    <img src="images/socks.jpg" alt="socks" />
+                </div>
+            </div>
+            <div class="container">
+                <button id="submit" class="btn" type="submit" value="Submit">Submit</button>
+                
+                <p class="lead">
+                    Show Your Kingdom Pride!
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <script>
+        function calcTotal() {
+            var itemTotal = 0;
+            var item1 = document.getElementById("item1");
+            var item2 = document.getElementById("item2");
+            var item3 = document.getElementById("item3");
+            var item4 = document.getElementById("item4");
+
+            (item1.checked) ? (itemTotal += 12) : (itemTotal += 0);
+            (item2.checked) ? (itemTotal += 25) : (itemTotal += 0);
+            (item3.checked) ? (itemTotal += 118) : (itemTotal += 0);
+            (item4.checked) ? (itemTotal += 9) : (itemTotal += 0);
+
+            var salesTaxRate = 0.07;
+            var orderTotal = itemTotal + (itemTotal * salesTaxRate);
+            alert("Your order total is $" + orderTotal);
+        }
+        document.getElementById("submit").addEventListener("click", calcTotal, false);
+        document.getElementById("reset").addEventListener("click", clearForm, true);
+    </script>
+    <script>
+        function clearForm() {
+            document.getElementById("item1").checked = false;
+            document.getElementById("item2").checked = false;
+            document.getElementById("item3").checked = false; 
+            document.getElementById("item4").checked = false;
+        }
+    </script>
+</body>
+</html>
