@@ -7,39 +7,41 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <link rel="stylesheet" href="css\styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container jumbotron">
-        <h1>Cheifs Kingdom Gear!</h1>
-        <hr class="my-4">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" style="color:red;">KC Chiefs</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="merchandise.html">Merchandise<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="schedule.html">Schedule</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="players.html">Players</a>
+                        <a class="nav-link" href="merchandise.html">Merchandise</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="players.html">Players</a>
                     </li>
                 </ul>
             </div>
         </nav>
-    </div>
-    <div class="container jumbotron1">
         <div class="container">
-            <h1 class="lead">
-                Your #1 source for KC Cheifs merchandise!
-            </h1>
-            <p class="lead">
-                Select the check boxes below and hit submit to send us an order. Your total will be displayed on screen.
-            </p>
+            <div class="container jumbotron">
+                <h1 class="lead">
+                    Your #1 source for KC Cheifs merchandise!
+                </h1>
+                <p class="lead">
+                    Select the check boxes below and hit submit to send us an order. Your total will be displayed on screen.
+                </p>
+            </div>
             <div class="row">
                 <div class="col">
                     <p class="lead">
@@ -72,13 +74,11 @@
             </div>
             <div class="container">
                 <button id="submit" class="btn" type="submit" value="Submit">Submit</button>
-                
                 <p class="lead">
                     Show Your Kingdom Pride!
                 </p>
             </div>
         </div>
-    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
