@@ -8,6 +8,14 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Implementing Products can now consist of just adding a new string, image, price, and class. All of which will be written onto the page upon loading-->
+    <script>
+        var products = ["Hat", "Jacket", "Vintage Zubaz", "Socks", "Tyreek Hill Jersey", "Poorly Drawn Eric Berry T-Shirt"];
+        var images = ["hat.jpg", "jacket.jpg", "zubaz.jpg", "socks.jpg", "tyreek-jersey.jpg", "berry4prezshirt.jpg"];
+        var prices = [16.00, 25.00, 118.00, 9.00, 61.00, 10.00];
+        var classes = [1, 2, 3, 4, 5, 6];
+    </script>
 </head>
 <body>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -15,7 +23,6 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
@@ -33,52 +40,49 @@
                 </ul>
             </div>
         </nav>
-        <div class="container">
-            <div class="container jumbotron">
+            <div class="container jumbotron-merch">
                 <h1 class="lead">
                     Your #1 source for KC Cheifs merchandise!
                 </h1>
                 <p class="lead">
-                    Select the check boxes below and hit submit to send us an order. Your total will be displayed on screen.
+                    Select the check boxes below and hit submit to send us an order. Your total and confirmation will be displayed on screen.
                 </p>
             </div>
-            <div class="row">
-                <div class="col">
-                    <p class="lead">
-                        <input type="checkbox" id="item1" value="12" />
-                        Hat $12.00
-                    </p>
-                    <img src="images/hat.jpg" alt="hat" />                   
-                </div>
-                <div class="col">
-                       <p class="lead">
-                           <input type="checkbox" id="item2" value="25" />
-                           Jacket $25.00
-                        </p>
-                    <img src="images/jacket.jpg" alt="jacket" />
-                </div>
-                <div class="col">
-                    <p class="lead">
-                        <input type="checkbox" id="item3" value="118" />
-                       Vintage Zoobas $118.00
-                    </p>
-                    <img src="images/zubaz.jpg" alt="zubaz" />
-                </div>
-                <div class="col">
-                    <p class="lead">
-                        <input type="checkbox" id="item4" value="9" />
-                        Socks $9.00
-                    </p>
-                    <img src="images/socks.jpg" alt="socks" />
-                </div>
-            </div>
-            <div class="container">
-                <button id="submit" class="btn" type="submit" value="Submit">Submit</button>
-                <p class="lead">
-                    Show Your Kingdom Pride!
-                </p>
-            </div>
+    <div class="container">
+        <!-- This script will print out a grid view, and load 4 pictures per row, and make a new row if not-->
+        <script>
+            for (var x = 0; x < products.length; x++) {
+                if (x == 0 || x % 4 == 0) {
+                    document.write("<div class='row' id='row" + x + "'>" +
+                                        "<div class='col'>" +
+                                            "<p class='lead'>" +
+                                                "<input type='checkbox' id='item'" + x + "' value='12' />" +
+                                                products[x] + "\t\t$" + prices[x].toFixed(2) +
+                                            "</p>" +
+                                            "<img src='images/" + images[x] + "' id='" + products[x] + "' alt='" + products[x] + "' />" +
+                                        "</div>" +
+                                    "</div>");
+                }
+                else {
+                    document.write("<div class='col'>" +
+                                        "<p class='lead'>" +
+                                            "<input type='checkbox' id='item" + x + "' value='12' />" +
+                                                products[x] + "\t\t$" + prices[x].toFixed(2) +
+                                        "</p>" +
+                                        "<img src='images/" + images[x] + "' id='" + products[x] + "' alt='" + products[x] + "' />" +
+                                    "</div>");
+                }                   
+            }
+        </script>
+         
         </div>
+        <div class="container">
+            <button id="submit" class="btn" type="submit" value="Submit">Submit</button>
+            <p class="lead">
+                Show Your Kingdom Pride!
+            </p>
+        </div>
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -88,22 +92,24 @@
     <script>
         function calcTotal() {
             var itemTotal = 0;
-            var item1 = document.getElementById("item1");
-            var item2 = document.getElementById("item2");
-            var item3 = document.getElementById("item3");
-            var item4 = document.getElementById("item4");
+            var checkedItem1, checkedItem2, checkedItem3, checkedItem4;
+            for (var i = 0; i < 4; i++) {
+                ('checkedItem' + i) = document.getElementById("item" + x);
+            }
 
             (item1.checked) ? (itemTotal += 12) : (itemTotal += 0);
             (item2.checked) ? (itemTotal += 25) : (itemTotal += 0);
             (item3.checked) ? (itemTotal += 118) : (itemTotal += 0);
             (item4.checked) ? (itemTotal += 9) : (itemTotal += 0);
+            (item5.checked) ? (itemTotal += 9) : (itemTotal += 0);
+            (item6.checked) ? (itemTotal += 9) : (itemTotal += 0);
 
             var salesTaxRate = 0.07;
             var orderTotal = itemTotal + (itemTotal * salesTaxRate);
             alert("Your order total is $" + orderTotal);
         }
-        document.getElementById("submit").addEventListener("click", calcTotal, false);
-        document.getElementById("reset").addEventListener("click", clearForm, true);
+        document.getElementById("submit").addEventListener("click", calcTotal(), false);
+        document.getElementById("reset").addEventListener("click", clearForm, false);
     </script>
     <script>
         function clearForm() {
