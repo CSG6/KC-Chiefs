@@ -56,20 +56,20 @@
                     document.write("<div class='row' id='row" + x + "'>" +
                                         "<div class='col'>" +
                                             "<p class='lead'>" +
-                                                "<input type='checkbox' id='item'" + x + "' value='12' />" +
+                                                "<img src='images/" + images[x] + "' id='" + products[x] + "' alt='" + products[x] + "' />" +
+                                                "<input type='checkbox' id='item" + x + "' value='12' />" +
                                                 products[x] + "\t\t$" + prices[x].toFixed(2) +
                                             "</p>" +
-                                            "<img src='images/" + images[x] + "' id='" + products[x] + "' alt='" + products[x] + "' />" +
                                         "</div>" +
                                     "</div>");
                 }
                 else {
                     document.write("<div class='col'>" +
                                         "<p class='lead'>" +
+                                            "<img src='images/" + images[x] + "' id='" + products[x] + "' alt='" + products[x] + "' />" +
                                             "<input type='checkbox' id='item" + x + "' value='12' />" +
                                                 products[x] + "\t\t$" + prices[x].toFixed(2) +
                                         "</p>" +
-                                        "<img src='images/" + images[x] + "' id='" + products[x] + "' alt='" + products[x] + "' />" +
                                     "</div>");
                 }                   
             }
@@ -77,11 +77,13 @@
          
         </div>
         <div class="container">
-            <button id="submit" class="btn" type="submit" value="Submit">Submit</button>
+            <button id="button" class="btn" type="button" onclick="calcTotal()" >Submit</button>
             <p class="lead">
                 Show Your Kingdom Pride!
             </p>
         </div>
+    <div class="feedback1 container" id="feedback"> 
+
     </div>
 
     <!-- Optional JavaScript -->
@@ -92,32 +94,20 @@
     <script>
         function calcTotal() {
             var itemTotal = 0;
-            var checkedItem1, checkedItem2, checkedItem3, checkedItem4;
-            for (var i = 0; i < 4; i++) {
-                ('checkedItem' + i) = document.getElementById("item" + x);
+            var checkedItems = ['', '', '', '', '', ''];
+            for (var i = 0; i < products.length; i++) {
+                checkedItems[i] = document.getElementById('item' + (i));
+                if (checkedItems[i].checked == true) {
+                    itemTotal += prices[i];
+                }
             }
-
-            (item1.checked) ? (itemTotal += 12) : (itemTotal += 0);
-            (item2.checked) ? (itemTotal += 25) : (itemTotal += 0);
-            (item3.checked) ? (itemTotal += 118) : (itemTotal += 0);
-            (item4.checked) ? (itemTotal += 9) : (itemTotal += 0);
-            (item5.checked) ? (itemTotal += 9) : (itemTotal += 0);
-            (item6.checked) ? (itemTotal += 9) : (itemTotal += 0);
-
             var salesTaxRate = 0.07;
             var orderTotal = itemTotal + (itemTotal * salesTaxRate);
-            alert("Your order total is $" + orderTotal);
+            var feedback = document.getElementById('feedback');
+            feedback.innerHTML = ("<h3>Thank you, your order total is $" + orderTotal + "</h3>");
+            feedback.style.backgroundColor = '#4bf442';
         }
-        document.getElementById("submit").addEventListener("click", calcTotal(), false);
-        document.getElementById("reset").addEventListener("click", clearForm, false);
-    </script>
-    <script>
-        function clearForm() {
-            document.getElementById("item1").checked = false;
-            document.getElementById("item2").checked = false;
-            document.getElementById("item3").checked = false; 
-            document.getElementById("item4").checked = false;
-        }
+        document.getElementById("button").addEventListener("click", calcTotal(), false);
     </script>
 </body>
 </html>
