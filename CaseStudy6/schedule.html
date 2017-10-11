@@ -11,7 +11,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link href="images/logo.ico" rel="">
-    <link href="jumbotron.css" rel="stylesheet">
     <style type="text/css">
     .accordion .card-header:after {
       font-family: 'FontAwesome';
@@ -21,11 +20,29 @@
     .accordion .card-header.collapsed:after {
       content: "\f067";
     }
+    .jumbotron {
+      background: rgba(100, 255, 255, 0.5);
+    }
+    #cards {
+      max-width: 800px;
+      padding: 10px 20px;
+      background: #f4f7f8;
+      margin: 10px auto;
+      padding: 20px;
+      background: #f4f7f8;
+      border-radius: 8px;
+      font: Helvetica, Sans-Serif;
+    }
+    body {
+      background-image: url(images/backdrop.jpg);
+      background-repeat: no-repeat;
+    }
     </style>
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container">
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <a class="navbar-brand" style = "color:red;">KC Chiefs</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -57,7 +74,7 @@
       </div>
     </div>
     <!--Start collapsed schedule cards -->
-    <div id="faq" role="tablist" aria-multiselectable="true">
+    <div id="cards" role="tablist" aria-multiselectable="true">
       <div class="card">
         <div class="card-header" role="tab" id="questionOne">
           <h5 class="card-title">
@@ -276,7 +293,6 @@
           </div>
         </div>
       </div>
-
       <div class="card">
         <div class="card-header" role="tab" id="questionThree">
           <h5 class="card-title">
@@ -311,5 +327,6 @@
       $('[data-toggle="popover"]').popover()
     })
     </script>
+  </div>
   </body>
 </html>
