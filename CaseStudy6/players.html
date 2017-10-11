@@ -45,7 +45,8 @@
       <div class="container">
         <h1 class="display-3">Players of the Kansas City Chiefs</h1>
         <p>Welcome to the players page. We will be featuring three players per week. Learn all about your KC Cheifs. </p>
-        <p><img src = "images/chiefs-players.jpg" alt = "KC Chiefs"></p>
+        <p><img src = "images/chiefs-players.jpg" id = "mainPlayerImage" alt = "KC Chiefs" style = "width:450px;height:450px;" ></p>
+		<p id = "mainPlayer"></p>
       </div>
     </div>
 
@@ -53,7 +54,7 @@
       <div class="row">
         <div class="col-md-4">
           <h2>Alex Smith</h2>
-          <p><img src = "images/smith.jpg" alt = "Alex Smith" style = "width:300px;height:300px;"></p>
+          <p><img src = "images/smith.jpg" alt = "Alex Smith" id = "smith" style = "width:300px;height:300px;" onclick = changePlayer(this.src)></p>
 			<ul>
 			<li>QB #11</li>
 			<li>Height: 6-4</li>
@@ -66,7 +67,7 @@
         </div>
         <div class="col-md-4">
           <h2>Tyreek Hill</h2>
-          <p><img src = "images/hill.jpg" alt = "Tyreek Hill" style = "width:300px;height:300px;"></p>
+          <p><img src = "images/hill.jpg" alt = "Tyreek Hill" id = "hill" style = "width:300px;height:300px;" onclick = changePlayer(this.src)></p>
 		  <ul>
 		    <li>WR #10</li>
 			<li>Height: 5-10</li>
@@ -80,7 +81,7 @@
         </div>
         <div class="col-md-4">
           <h2>Kareem Hunt</h2>
-          <p><img src = "images/hunt.jpg" alt = "Kareem Hunt" style = "width:300px;height:300px;"></p>
+          <p><img src = "images/hunt.jpg" alt = "Kareem Hunt" id = "hunt" style = "width:300px;height:300px;" onclick = changePlayer(this.src)></p>
          <ul> 
 			<li>RB #27</li>
 			<li>Height: 5-11</li>
@@ -110,5 +111,14 @@
     <script src="../../../../dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../../../assets/js/ie10-viewport-bug-workaround.js"></script>
+	<script>
+		
+		function changePlayer(imageSource) {
+			var x = imageSource;
+			
+			document.getElementById("mainPlayerImage").src = x;
+		}
+		
+	</script>
   </body>
 </html>
