@@ -77,7 +77,7 @@
          
         </div>
         <div class="container">
-            <button id="button" class="btn" type="button" onclick="calcTotal()" >Submit</button>
+            <button id="button" class="btn" type="button" onclick="calcTotal()" >Next Step</button>
             <p class="lead">
                 Show Your Kingdom Pride!
             </p>
@@ -85,7 +85,119 @@
     <div class="feedback1 container" id="feedback"> 
 
     </div>
-
+    <div class="container jumbotron">
+        <h1>
+            Please fill out the form below, to sign up for our imaginary services.
+        </h1>
+    </div>
+    <div class="container">
+        <form id="myForm">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="firstName" class="col-form-label">First Name</label>
+                    <input type="text" id="firstName" class="form-control" placeholder="First name">
+                </div>
+                <div class="col-md-6">
+                    <label for="firstName" class="col-form-label">Last Name</label>
+                    <input type="text" id="lastName" class="form-control" placeholder="Last name">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4" class="col-form-label">Email</label>
+                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputPhone4" class="col-form-label">Phone Number</label>
+                    <input type="tel" class="form-control" id="inputPhone4" placeholder="(555)111-2222">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputAddress" class="col-form-label">Address</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+            </div>
+            <div class="form-group">
+                <label for="inputAddress2" class="col-form-label">Address 2</label>
+                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputCity" class="col-form-label">City</label>
+                    <input type="text" class="form-control" id="inputCity">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputState" class="col-form-label">State</label>
+                    <select id="inputState" class="form-control">
+                        Choose
+                        <option value=""></option>
+                        <option value="AL">AL</option>
+                        <option value="AK">AK</option>
+                        <option value="AR">AR</option>
+                        <option value="AZ">AZ</option>
+                        <option value="CA">CA</option>
+                        <option value="CO">CO</option>
+                        <option value="CT">CT</option>
+                        <option value="DC">DC</option>
+                        <option value="DE">DE</option>
+                        <option value="FL">FL</option>
+                        <option value="GA">GA</option>
+                        <option value="HI">HI</option>
+                        <option value="IA">IA</option>
+                        <option value="ID">ID</option>
+                        <option value="IL">IL</option>
+                        <option value="IN">IN</option>
+                        <option value="KS">KS</option>
+                        <option value="KY">KY</option>
+                        <option value="LA">LA</option>
+                        <option value="MA">MA</option>
+                        <option value="MD">MD</option>
+                        <option value="ME">ME</option>
+                        <option value="MI">MI</option>
+                        <option value="MN">MN</option>
+                        <option value="MO">MO</option>
+                        <option value="MS">MS</option>
+                        <option value="MT">MT</option>
+                        <option value="NC">NC</option>
+                        <option value="NE">NE</option>
+                        <option value="NH">NH</option>
+                        <option value="NJ">NJ</option>
+                        <option value="NM">NM</option>
+                        <option value="NV">NV</option>
+                        <option value="NY">NY</option>
+                        <option value="ND">ND</option>
+                        <option value="OH">OH</option>
+                        <option value="OK">OK</option>
+                        <option value="OR">OR</option>
+                        <option value="PA">PA</option>
+                        <option value="RI">RI</option>
+                        <option value="SC">SC</option>
+                        <option value="SD">SD</option>
+                        <option value="TN">TN</option>
+                        <option value="TX">TX</option>
+                        <option value="UT">UT</option>
+                        <option value="VT">VT</option>
+                        <option value="VA">VA</option>
+                        <option value="WA">WA</option>
+                        <option value="WI">WI</option>
+                        <option value="WV">WV</option>
+                        <option value="WY">WY</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputZip" class="col-form-label">Zip</label>
+                    <input type="text" class="form-control" id="inputZip">
+                </div>
+                <div class="form-group">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" id="terms" name="terms" type="checkbox"> I understand the terms and conditions, even though I have not read them.
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <button type="button" id="button" value="button" class="btn btn-success" onclick="validateForm()">Hit Me with That Cheifs Gear!</button>
+        </form>
+    </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -104,10 +216,84 @@
             var salesTaxRate = 0.07;
             var orderTotal = itemTotal + (itemTotal * salesTaxRate);
             var feedback = document.getElementById('feedback');
-            feedback.innerHTML = ("<h3>Thank you, your order total is $" + orderTotal + "</h3>");
+            feedback.innerHTML = ("<h3>Thank you, your order total is $" + orderTotal + "." +
+                 "Please fill out the information below to send us your order!</h3>");
             feedback.style.backgroundColor = '#4bf442';
         }
         document.getElementById("button").addEventListener("click", calcTotal(), false);
+
+        var form = document.getElementById('myForm');
+            function checkForFirstBlanks(fieldName) {
+                var field = document.getElementById(fieldName);
+                if (field.value == "") {
+                    field.style.backgroundColor = '#ffff99';
+                }
+            }
+            function checkForBlank(fieldName) {
+                var field = document.getElementById(fieldName);
+                if (field.value == "") {
+                    field.style.backgroundColor = '#ffff99';
+                    feedback.innerHTML = "<h3 class='lead'> One or more fields was left unfilled. Please ensure all highlighted fields are filled out.</h3>";
+                    feedback.style.backgroundColor = '#ff0004';
+                }
+            }
+            function resetForm() {
+                for (var c = 0; c < fieldIDs.length[c]; c++) {
+                    checkForBlank(fieldIDs[c]);
+                }
+            }
+            var feedback = document.getElementById('feedback');
+            var fieldIDs = ['firstName', 'lastName', 'inputEmail4', 'inputPhone4', 'inputAddress', 'inputCity', 'inputState', 'inputZip'];
+            var regExps = [/[AZaz]{0-1}{3-11}/g, /[A-Za-z]{3-14}/g, /[A-Za-z]{1-20}[0-9]{1-20}+@[A-Za-z]{10-11}/g, /^([0-9]( |-)?)?(\(?[0-9]{3}\)?|[0-9]{3})( |-)?([0-9]{3}( |-)?[0-9]{4}|[a-zA-Z0-9]{7})$/g,
+                /[0-9]{1-6}[A-Za-z]{1-30}./g, /[A-Za-z]{30}/g, /[A-Z]{2}/g, /[0-9]{4-7}/g];
+            for (var x = 0; x < fieldIDs.length; x++) {
+                checkForFirstBlanks(fieldIDs[x]);
+            }
+            /*
+            var regFName = ;
+            var regLName = ;
+            var regEmail = ;
+            var regPhone = ;
+            var regAddress = ;
+            var regCity = ;
+            var regState = ;
+            var regZip = ;*/
+
+            function validateForm() {
+                var terms = document.getElementById('terms');
+                try {
+                    if (terms.checked == true) {
+                        var thisField;
+                        var thisRegExp;
+
+                        for (var t = 0; t < fieldIDs.length; t++) {
+                            thisField = document.getElementById(fieldIDs[t]).value;
+                            thisRegExp = new RegExp(regExps[t]);
+                            var thisTest = thisRegExp.test(thisField);
+                            if (thisField.length > 0) { //&& (thisTest == true)) {
+                                feedback.innerHTML = "<h3 class='lead'>Thank you for signing up!</h3>";
+                                feedback.style.backgroundColor = '#42f44e';
+                            }
+                            else {
+                                feedback.innerHTML = "<h3 class='lead'> One or more fields is invalid. Review the required fields. </h3>";
+                                for (var i = 0; i < fieldIDs.length; i++) {
+                                    checkForBlank(fieldIDs[i]);
+                                }
+                            }
+                        }
+                    }
+                    else {
+                        feedback.style.backgroundColor = '#ff0004';
+                        feedback.innerHTML = "<h3 class='lead'> You must agree to the terms and service in order to sign up.</h3>";
+                        resetForm();
+                    }
+                }
+                catch(error) {
+                    feedback.innerHTML = "<h3 class='lead'>Thank you for your order, " + document.getElementById('firstName').value + ". " +
+                        " Your order total is " + orderTotal +"</h3>";
+                    feedback.style.backgroundColor = '#42f44e'
+                    }
+            }
     </script>
 </body>
 </html>
