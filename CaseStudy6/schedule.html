@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script async defer src="http://platform.instagram.com/en_US/embeds.js"></script>
     <link href="images/logo.ico" rel="">
     <style type="text/css">
     .accordion .card-header:after {
@@ -21,21 +23,37 @@
       content: "\f067";
     }
     .jumbotron {
-      background: rgba(100, 255, 255, 0.5);
+      background: rgba(0,0,0,0.4);
+      color: white;
     }
     #cards {
-      max-width: 800px;
+      width: 60%;
       padding: 10px 20px;
       background: #f4f7f8;
-      margin: 10px auto;
-      padding: 20px;
-      background: #f4f7f8;
+      background: rgba(0,0,0,0.4);
       border-radius: 8px;
       font: Helvetica, Sans-Serif;
+      float: left;
     }
     body {
       background-image: url(images/backdrop.jpg);
       background-repeat: no-repeat;
+    }
+    #sideNav {
+      float: right;
+      width: 40%;
+      padding: 10px 20px;
+      background: #f4f7f8;
+      background: rgba(0,0,0,0.4);
+      border-radius: 8px;
+      font: Helvetica, Sans-Serif;
+    }
+    #cards li:nth-child(odd) {
+      background: rgba(0,0,0,0.4);
+      border-radius: 25px;
+      padding: 20px;
+      width: 100%;
+   
     }
     </style>
   </head>
@@ -76,14 +94,14 @@
     <!--Start collapsed schedule cards -->
     <div id="cards" role="tablist" aria-multiselectable="true">
       <div class="card">
-        <div class="card-header" role="tab" id="questionOne">
+        <div class="card-header" role="tab" id="sectionOne">
           <h5 class="card-title">
-            <a data-toggle="collapse" data-parent="#faq" href="#answerOne" aria-expanded="true" aria-controls="answerOne">
+            <a class="collapsed" data-toggle="collapse" data-parent="#faq" href="#preSeason" aria-expanded="false" aria-controls="preSeason">
               Pre Season
             </a>
           </h5>
         </div>
-        <div id="answerOne" class="collapse show" role="tab" aria-labelledby="questionOne">
+        <div id="preSeason" class="collapse" role="tab" aria-labelledby="sectionOne">
           <div class="card-body">
             <ul>
               <li>
@@ -128,14 +146,14 @@
       </div>
 
       <div class="card">
-        <div class="card-header" role="tab" id="questionTwo">
+        <div class="card-header" role="tab" id="sectionTwo">
           <h5 class="card-title">
-            <a class="collapsed" data-toggle="collapse" data-parent="#faq" href="#answerTwo" aria-expanded="false" aria-controls="answerTwo">
+            <a data-toggle="collapse" data-parent="#faq" href="#regSeason" aria-expanded="true" aria-controls="regSeason">
               Regular Season
             </a>
           </h5>
         </div>
-        <div id="answerTwo" class="collapse" role="tab" aria-labelledby="questionTwo">
+        <div id="regSeason" class="collapse show" role="tab" aria-labelledby="sectionTwo">
           <div class="card-body">
             <ul>
               <li>
@@ -294,21 +312,39 @@
         </div>
       </div>
       <div class="card">
-        <div class="card-header" role="tab" id="questionThree">
+        <div class="card-header" role="tab" id="sectionThree">
           <h5 class="card-title">
-            <a class="collapsed" data-toggle="collapse" data-parent="#faq" href="#answerThree" aria-expanded="true" aria-controls="answerThree">
+            <a class="collapsed" data-toggle="collapse" data-parent="#faq" href="#postSeason" aria-expanded="false" aria-controls="postSeason">
               Post Season
             </a>
           </h5>
         </div>
-        <div id="answerThree" class="collapse in" role="tab" aria-labelledby="questionThree">
+        <div id="postSeason" class="collapse in" role="tab" aria-labelledby="sectionThree">
           <div class="card-body">
             Please check back later for more post season information!
           </div>
         </div>
       </div>
     </div>
-
+    <div id="sideNav">
+      <div id="news">
+        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-version="7" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+          <div style="padding:8px;">
+            <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:50.0% 0; text-align:center; width:100%;">
+              <div style="background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;">
+              </div>
+            </div>
+            <p style=" margin:8px 0 0 0; padding:0 4px;">
+              <a href="https://www.instagram.com/p/BaSXyVNlmiu/" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank">We fall to 5-1 on the season.</a>
+            </p>
+            <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">A post shared by Kansas City Chiefs (@chiefs) on <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2017-10-15T23:26:40+00:00">Oct 15, 2017 at 4:26pm PDT</time></p>
+          </div>
+        </blockquote>
+      </div>
+      <div id="twitter">
+        <a class="twitter-timeline" data-theme="light" data-link-color="#E81C4F" href="https://twitter.com/Chiefs" data-tweet-limit=5>Tweets by Chiefs</a>
+      </div>
+    </div>
     <!-- jQuery library -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <!-- Popper -->
